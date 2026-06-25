@@ -119,7 +119,7 @@ export default {
     async carregarDestaques() {
       const response = await fetch(`${this.$apiUrl}/menu`);
       const dados = await response.json();
-      this.pizzasDestaque = dados.salgadas.slice(0, 3);
+      this.pizzasDestaque = (dados.salgadas || []).slice(0, 3);
     },
     pedirPizza(pizza) {
       const pizzaJson = encodeURIComponent(JSON.stringify(pizza));
